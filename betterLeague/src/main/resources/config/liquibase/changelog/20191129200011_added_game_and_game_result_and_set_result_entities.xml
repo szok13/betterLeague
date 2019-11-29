@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1575054173775-1" author="psztok">
+        <createTable tableName="game">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="creation_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="game_time" type="timestamp">
+            </column>
+
+            <column name="team_one_name" type="varchar(255)">
+            </column>
+
+            <column name="team_two_name" type="varchar(255)">
+            </column>
+
+            <column name="game_real_result_id" type=" bigint">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1575054173775-2" author="psztok">
+        <createTable tableName="game_result">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="creation_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="winning_team" type="varchar(255)">
+            </column>
+
+            <column name="winning_team_set_count" type="int">
+            </column>
+
+            <column name="losing_team_set_count" type="int">
+            </column>
+
+            <column name="is_actual_result" type="boolean">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1575054173775-3" author="psztok">
+        <createTable tableName="set_result">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="game_result_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="creation_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="winningTeam" type="varchar(255)">
+            </column>
+
+            <column name="set_number" type="int">
+            </column>
+
+            <column name="winning_team_set_points" type="int">
+            </column>
+
+            <column name="losing_team_set_points" type="int">
+            </column>
+
+            <column name="is_actual_result" type="boolean">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1575054173775-5" author="psztok">
+        <addForeignKeyConstraint baseColumnNames="game_real_result_id"
+                                 baseTableName="game"
+                                 constraintName="fk_game_real_result_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="game_result"/>
+    </changeSet>
+
+    <changeSet id="1575054173775-6" author="psztok">
+        <addForeignKeyConstraint baseColumnNames="game_result_id"
+                                 baseTableName="set_result"
+                                 constraintName="fk_game_result_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="game_result"/>
+    </changeSet>
+
+</databaseChangeLog>

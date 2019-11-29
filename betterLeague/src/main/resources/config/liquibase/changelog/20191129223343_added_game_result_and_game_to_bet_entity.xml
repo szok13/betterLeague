@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1575064297474-1" author="psztok">
+        <addColumn tableName="bet">
+            <column name="betted_game_result_id" type="bigint" />
+        </addColumn>
+    </changeSet>
+
+
+    <changeSet id="1575064297474-2" author="psztok">
+        <addForeignKeyConstraint baseColumnNames="betted_game_result_id"
+                                 baseTableName="bet"
+                                 constraintName="fk_betted_game_result_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="game_result"/>
+    </changeSet>
+
+    <changeSet id="1575064297474-3" author="psztok">
+        <addColumn tableName="bet">
+            <column name="game_id" type="bigint" />
+        </addColumn>
+    </changeSet>
+
+
+    <changeSet id="1575064297474-4" author="psztok">
+        <addForeignKeyConstraint baseColumnNames="game_id"
+                                 baseTableName="bet"
+                                 constraintName="fk_game_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="game"/>
+    </changeSet>
+
+</databaseChangeLog>

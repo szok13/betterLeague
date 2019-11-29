@@ -8,5 +8,6 @@
         <include file="classpath:config/liquibase/changelog/20191112221730_added_bet_entity.xml" relativeToChangelogFile="false"/>
         <include file="classpath:config/liquibase/changelog/20191112222612_added_user_entity.xml" relativeToChangelogFile="false"/>
         <include file="classpath:config/liquibase/changelog/20191113190911_added_player_results_entity.xml" relativeToChangelogFile="false"/>
-
+        <include file="classpath:config/liquibase/changelog/20191129200011_added_game_and_game_result_and_set_result_entities.xml" relativeToChangelogFile="false"/>
+        <include file="classpath:config/liquibase/changelog/20191129223343_added_game_result_and_game_to_bet_entity.xml" relativeToChangelogFile="false"/>
  </databaseChangeLog>

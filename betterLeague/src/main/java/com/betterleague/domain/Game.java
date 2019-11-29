@@ -26,6 +26,6 @@ public class Game {
     private String teamTwoName;
 
     @OneToOne
-    @JoinColumn(name="game_result_id")
-    private GameResult gameResult;
+    @JoinColumn(name="game_real_result_id")
+    private GameResult gameRealResult;
 }
