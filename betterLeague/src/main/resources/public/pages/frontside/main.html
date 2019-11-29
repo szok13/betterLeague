@@ -1,0 +1,11 @@
+<div class="container">
+   <h1>BETTER LEAGUE APP</h1>
+      <div class="tile tile-dark-blue" ng-if="!order">
+         <h3>Podaj login</h3>
+         <p>aby zagrać</p>
+         <div class="form-group">
+            <input type="text" ng-model="betDTO.playerLogin" placeholder="Podaj swój login" class="form-control">
+         </div>
+         <a class="btn btn-primary btn-large btn-block" href="" ng-click="createBet()">Zagraj</a>
+      </div>
+</div>

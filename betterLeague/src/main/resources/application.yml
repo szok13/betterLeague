@@ -1,0 +1,19 @@
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/betterleague
+        name: betterleague
+        username: postgres
+        password: postgres
+    jpa:
+      database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+      database: POSTGRESQL
+      show_sql: true
+      properties:
+        hibernate:
+          generate_statistics: false
+          cache:
+            use_second_level_cache: false
+            use_query_cache: false
+            region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+

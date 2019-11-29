@@ -1,0 +1,13 @@
+{
+  "name": "betterleague",
+  "version": "0.0.0",
+  "description": "carManager",
+  "private": true,
+  "cacheDirectories": [
+    "node_modules",
+    "src/main/resources/public/bower_components"
+  ],
+  "dependencies": {
+    "bower": "^1.8.2"
+  }
+}
