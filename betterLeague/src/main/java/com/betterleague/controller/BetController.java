@@ -2,6 +2,7 @@ package com.betterleague.controller;
 
 
 import com.betterleague.controller.DTO.BetDTO;
+import com.betterleague.controller.DTO.GameDTO;
 import com.betterleague.domain.Bet;
 import com.betterleague.domain.User;
 import com.betterleague.domain.enumeration.BetStatus;
@@ -10,10 +11,7 @@ import com.betterleague.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
 import java.util.logging.Level;
@@ -45,5 +43,18 @@ public class BetController {
         betRepository.save(bet);
 
         return new ResponseEntity<>(betRepository.save(bet), HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/bet/getGameTeams/{gameId}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getGameTeams(@PathVariable Long gameId)  {
+        logger.log(Level.INFO,"In getGameTeams method.");
+
+        GameDTO gameDTO = new GameDTO();
+        gameDTO.setGameId(gameId);
+        gameDTO.setTeamOneName("some team one");
+        gameDTO.setTeamTwoName("some team two");
+        return new ResponseEntity<>(gameDTO, HttpStatus.OK);
     }
 }

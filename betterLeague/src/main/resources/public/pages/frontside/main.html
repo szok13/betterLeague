@@ -1,11 +1,61 @@
 <div class="container">
    <h1>BETTER LEAGUE APP</h1>
-      <div class="tile tile-dark-blue" ng-if="!order">
+      <div class="tile tile-dark-blue">
          <h3>Podaj login</h3>
          <p>aby zagrać</p>
          <div class="form-group">
             <input type="text" ng-model="betDTO.playerLogin" placeholder="Podaj swój login" class="form-control">
          </div>
+
+         <ul>
+            <li ng-repeat="g in gameList">
+               <label>{{g.gameName}}
+                  <input ng-click="updateGameChoice()" type="radio" ng-model="game.gameId" name="game" value="{{g.gameId}}" required />
+               </label>
+            </li>
+         </ul>
+
+         <div ng-if="betDTO.gameId">
+<!--            <div> // not use since it's better to set it in function basing on given result
+               <h4>Wybierz zwycięską drużynę</h4>
+               <input type="radio" ng-model="betDTO.bettedWinner" value="POSITION_ONE_TEAM">{teams.[0]}
+               <input type="radio" ng-model="betDTO.bettedWinner" value="POSITION_TWO_TEAM">{teams.[1]}
+            </div>-->
+            <div>
+               <h4>Podaj wynik w meczu (wynik w setach - game result).</h4>
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="row">
+                        <div class="col-md-8">
+                           <p>{{teamOneName}}</p>
+
+                        </div>
+                        <div class="col-md-4">
+                           <input type="text" ng-model="tempScore.teamOneSetCount" placeholder="type score here" required>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <p>:</p>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="row">
+                        <div class="col-md-8">
+                           <input type="text" ng-model="tempScore.teamTwoSetCount" placeholder="type score here" required>
+                        </div>
+                        <div class="col-md-4">
+                           <p>{{teamTwoName}}</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+            <div>
+               <h4>Wybierz wynik poszczególnych setów. LATER</h4>
+            </div>
+         </div>
+
          <a class="btn btn-primary btn-large btn-block" href="" ng-click="createBet()">Zagraj</a>
       </div>
 </div>

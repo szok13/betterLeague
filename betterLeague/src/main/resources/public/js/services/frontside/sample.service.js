@@ -6,9 +6,14 @@ angular.module('betterApp')
             'createBet' : {
                 method : 'POST'
             },
-            'getBetList' : {
+            'getAvailableGames' : {
                 method :'GET',
                 isArray : true
+            },
+            'getGameTeams' : {
+                url: 'api/bet/getGameTeams/:gameId',
+                gameId: '@gameId',
+                method :'GET'
             }
         });
     });
