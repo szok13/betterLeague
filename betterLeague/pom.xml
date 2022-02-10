@@ -25,7 +25,7 @@
         <liquibase-slf4j.version>1.2.1</liquibase-slf4j.version>
         <liquibase.version>3.4.2</liquibase.version>
         <liquibase-hibernate4.version>3.5</liquibase-hibernate4.version>
-        <postgresql.version>9.4-1206-jdbc42</postgresql.version>
+        <postgresql.version>42.2.25</postgresql.version>
         <c3p0.version>0.9.2.1</c3p0.version>
         <hibernate.version>4.3.11.Final</hibernate.version>
     </properties>
